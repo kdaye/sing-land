@@ -29,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3.5.0
         with:
-          node-version: 18
+          node-version: 20
 
       - uses: google/wireit@setup-github-actions-caching/v1
 
@@ -54,7 +54,7 @@ jobs:
         shell: pwsh
         run: |
           mkdir -p artifacts/sing-box
-          Invoke-RestMethod -Uri https://github.com/SagerNet/sing-box/releases/download/v$VERSION/sing-box-$VERSION-windows-amd64.zip -OutFile sing-box.zip
+          Invoke-RestMethod -Uri https://github.com/SagerNet/sing-box/releases/download/v1.8.10/sing-box-1.8.10-windows-amd64.zip -OutFile sing-box.zip
           Expand-Archive .\sing-box.zip -DestinationPath .\artifacts\sing-box
           Move-Item -Path .\artifacts\sing-box\**\sing-box.exe -Destination .\controller\resources\sing-box\
 
